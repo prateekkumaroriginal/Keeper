@@ -1,7 +1,7 @@
 export default function Header() {
     return (
-        <Header>
+        <header>
             <h1>Keeper</h1>
-        </Header>
+        </header>
     );
 }

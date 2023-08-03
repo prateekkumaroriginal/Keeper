@@ -2,8 +2,8 @@ export default function Footer() {
     const year = new Date().getFullYear()
 
     return (
-        <Footer>
+        <footer>
             <p>&copy; {year}</p>
-        </Footer>
+        </footer>
     );
 }
