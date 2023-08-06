@@ -15,7 +15,7 @@ export default function App() {
     const deleteNote = (id) => {
         setNotes(prev => {
             return prev.filter((note, i) => {
-                if (i != id) {
+                if (i !== id) {
                     return note
                 }
             })

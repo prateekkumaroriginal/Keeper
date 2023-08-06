@@ -6,9 +6,8 @@ export default function AddNewNote(props) {
         content: ""
     })
 
-    function handleChange(event) {
-        let name = event.target.name
-        let value = event.target.value
+    const handleChange = (event) => {
+        const { name, value } = event.target
         setNote(prev => {
             return {
                 ...prev,
@@ -18,15 +17,18 @@ export default function AddNewNote(props) {
     }
 
     return (
-        <div id="add-note">
-            <input type="text" onChange={handleChange} value={note.title} name="title" placeholder="Title..." />
-            <input type="text" onChange={handleChange} value={note.content} name="content" placeholder="Take a note..." />
-            <button onClick={() => {
-                props.onAdd(note)
-                setNote({ title: "", content: "" })
-            }}>
-                Add
-            </button>
+        <div>
+            <form className="create-note">
+                <input type="text" onChange={handleChange} value={note.title} name="title" placeholder="Title..." />
+                <textarea onChange={handleChange} value={note.content} name="content" placeholder="Take a note..." rows="4" />
+                <button onClick={(event) => {
+                    event.preventDefault()
+                    props.onAdd(note)
+                    setNote({ title: "", content: "" })
+                }}>
+                    Add
+                </button>
+            </form>
         </div>
     )
 }
